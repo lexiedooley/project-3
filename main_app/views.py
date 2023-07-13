@@ -13,7 +13,7 @@ class MovieUpdate(UpdateView):
 
 class MovieDelete(DeleteView):
     model = Movie
-    success_url = '/movies'
+    success_url = '/allmovies'
 
 def movies_index(request):
     movies = Movie.objects.all()
@@ -24,11 +24,11 @@ def movies_index(request):
 class MovieCreate(CreateView):
     model = Movie
     fields = '__all__'
-    success_url = '/movies/{movie_id}'
+    
 
 def movies_detail(request, movie_id):
     movie = Movie.objects.get(id=movie_id)
-    return render(request, 'movies/details.html', {
+    return render(request, 'movies/detail.html', {
         'movie' : movie
     })
 
