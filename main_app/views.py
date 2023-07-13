@@ -15,4 +15,12 @@ class MovieCreate(DeleteView):
     model = Movie
     success_url = '/movies'
 
+def movies_index(request):
+    movies = Movie.objects.all()
+    return render(request, 'movies/index.html',
+                  {
+                      'movies': movies
+                  })
+
+
 
