@@ -7,11 +7,11 @@ def home(request):
     return render(request, 'home.html')
 
 
-class MovieCreate(UpdateView):
+class MovieUpdate(UpdateView):
     model = Movie
     fields = ['year', 'genre', 'rating', 'description']
 
-class MovieCreate(DeleteView):
+class MovieDelete(DeleteView):
     model = Movie
     success_url = '/movies'
 
@@ -25,5 +25,11 @@ class MovieCreate(CreateView):
     model = Movie
     fields = '__all__'
     success_url = '/movies/{movie_id}'
+
+def movies_detail(request, movie_id):
+    movie = Movie.objects.get(id=movie_id)
+    return render(request, 'movies/details.html', {
+        'movie' : movie
+    })
 
 

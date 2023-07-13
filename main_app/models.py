@@ -7,7 +7,7 @@ class Movie (models.Model):
     year = models.IntegerField()
     genre = models.CharField(max_length=50)
     rating = models.IntegerField()
-    description = models.TextField(max_length=250)
+    description = models.TextField(max_length=5000)
 
     def __str__(self):
         return f'{self.name} ({self.id})'
