@@ -9,11 +9,16 @@
   {% endif %}
 </div>
 
-  <form action="" method="POST">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-    </table>
-    <button type="button" class="btn btn-info"><input type="submit" value="Submit!" class="btn"></button>
-  </form>
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+    <!-- Add a new row for image upload -->
+    <tr>
+      <td><label for="image">Movie Image:</label></td>
+      <td><input type="file" id="image" name="image" accept="image/*"></td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-info">Submit!</button>
+</form>
 {% endblock %}
