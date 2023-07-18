@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="header">Movie List</h1>
+<div class="container">
+  {% for movie in movies %}
+  <a class="buttons" href="{% url 'movies_detail' movie.id %}">
+    <div>
+      <div>{{ movie.title }}
+        <!-- <p>Year: {{ movie.year }}</p> -->
+        <!-- <p>Description: {{ movie.description }}</p> -->
+        <p>Rating: {{ movie.rating }}</p>
+        <!-- <p>Genre: {{ movie.genre }}</p> -->
+      </div>
+    </div>
+  </a> 
+{% endfor %}
+</div>
+
+{% endblock %}

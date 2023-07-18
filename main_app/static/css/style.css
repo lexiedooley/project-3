@@ -1,14 +1,39 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  background-image: linear-gradient(to right, #fffbd5, #b20a2c);
+  text-align: justify; 
+  font-family: 'Rajdhani', sans-serif;
+} 
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color: black;
+}
+
+#copy-right {
+color: white;
+letter-spacing: 2px;
+}
+
+.buttons a {
+text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container a {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
   
-  main {
-    flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+}
+
