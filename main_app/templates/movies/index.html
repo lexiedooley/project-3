@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+
 <h1 class="header">Movie List</h1>
+
 <div class="container">
   {% for movie in movies %}
-  <a class="buttons" href="{% url 'movies_detail' movie.id %}">
-    <div>
-      <div>{{ movie.title }}
-        <!-- <p>Year: {{ movie.year }}</p> -->
-        <!-- <p>Description: {{ movie.description }}</p> -->
-        <p>Rating: {{ movie.rating }}</p>
-        <!-- <p>Genre: {{ movie.genre }}</p> -->
-      </div>
+  <div class="movie-card">
+    <img src="{% static 'images/' %}{{ movie.title }}.jpeg" alt="{{ movie.title }}">
+    <div class="movie-info">
+      <a href="{% url 'movies_detail' movie.id %}"><h2>{{ movie.title }}</h2></a>
+      <p>Rating: {{ movie.rating }}</p>
     </div>
-  </a> 
-{% endfor %}
+  </div>
+  {% endfor %}
 </div>
 
 {% endblock %}
