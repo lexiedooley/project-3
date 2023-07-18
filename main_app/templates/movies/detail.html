@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Movie Detail</h1>
+<h1 class="header">Movie Details</h1>
 
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">{{ movie.title }}</span>
-        <p>Year: {{ movie.year }}</p>
-        <p>Description: {{ movie.description }}</p>
-         <p>Rating: {{ movie.rating }}</p>
-         <p>Genre: {{ movie.genre }}</p>
-      </div>
+  <div>
+    <div>
+      <img src="" alt="">
+      <h2>{{ movie.title }}</h2>
+      <p>Year: {{ movie.year }}</p>
+      <p>Description: {{ movie.description }}</p>
+        <p>Rating: {{ movie.rating }}</p>
+        <p>Genre: {{ movie.genre }}</p>
     </div>
-  </a> 
-
-  <div class="card-action">
-    <a href="{% url 'movies_update' movie.id %}">Edit</a>
-    <a href="{% url 'movies_delete' movie.id %}">Delete</a>
+  </div>
+  <div class="buttons">
+    <button type="button" class="btn btn-info"><a href="{% url 'movies_update' movie.id %}">Edit</a></button>
+    <button type="button" class="btn btn-danger"><a href="{% url 'movies_delete' movie.id %}">Delete</a></button>
+  </div>
 
 {% endblock %}
 
