@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <h1 class="header">Movie Details</h1>
 
   <div>
     <div>
-      <img src="" alt="">
+      <img src="{% static 'images/' %}{{ movie.title }}.jpeg" alt="My image">
       <h2>{{ movie.title }}</h2>
       <p>Year: {{ movie.year }}</p>
       <p>Description: {{ movie.description }}</p>

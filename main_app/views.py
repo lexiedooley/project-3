@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import Movie
+from django import forms
 
 # Create your views here.
 def home(request):
@@ -32,4 +33,16 @@ def movies_detail(request, movie_id):
         'movie' : movie
     })
 
+class SearchForm(forms.Form):
+    query = forms.CharField(max_length=100, required=True)
 
+def search_results(request):
+    form = SearchForm(request.GET)
+    if form.is_valid():
+        query = form.cleaned_data['query']
+        movie = Movie.objects.get(title__icontains=query)
+    else:
+        movie = []
+    return render(request, 'search_results.html', {
+        'movie': movie 
+        })
